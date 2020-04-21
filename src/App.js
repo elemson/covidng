@@ -7,16 +7,22 @@ import { Cards, CountryPicker, Chart } from "./components";
 import React, { Component } from "react";
 
 export default class App extends Component {
+  state = {
+    data: {},
+  };
+
   async componentDidMount() {
-    const data = await fetchData();
-    console.log(data);
+    const fetchedData = await fetchData();
+
+    this.setState({ data: fetchedData });
   }
 
   render() {
+    const { data } = this.state;
     return (
       <div>
         <div className={styles.container}>
-          <Cards />
+          <Cards data={data} />
           <CountryPicker />
           <Chart />
         </div>
