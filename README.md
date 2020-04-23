@@ -1,6 +1,6 @@
 # Covid19 NG
 
-This app fetches json data from an open Api and displays it in a more friendly visuals such as charts, graphs, etc.
+This app fetches covid19 data from https://covid19.mathdro.id/api open API and displays it in a more visual friendly formats such as charts, graphs, etc.
 
 ## Technologies used
 
