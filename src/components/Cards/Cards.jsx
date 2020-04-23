@@ -35,11 +35,13 @@ const Cards = ({ data }) => {
   return (
     <div className={styles.container} justify="center">
       <Grid container md={12} justify="center" spacing={3} gutterBottom>
-        <Grid container md={12} justify="center" spacing={3} gutterBottom>
-          <Typography variant="h4" gutterBottom spacing={3}>
-            Nigeria Covid-19 stats
-          </Typography>
-        </Grid>
+        <Grid
+          container
+          md={12}
+          justify="center"
+          spacing={3}
+          gutterBottom
+        ></Grid>
         {gg}
       </Grid>
     </div>

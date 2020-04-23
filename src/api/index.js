@@ -33,7 +33,6 @@ export const fetchData = async (country) => {
       recovered: [recovered, "rgba(0,255,0, 0.5)"],
       deaths: [deaths, " rgba(255,0,0,0.5)"],
       active: [active, "#2fc5e9"],
-
       todayCases: [todayCases, "#c1a646"],
       casesPerOneMillion: [casesPerOneMillion, "rgba(0, 0, 255, 0.5)"],
       todayDeaths: [todayDeaths, "#767767"],

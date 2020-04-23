@@ -14,7 +14,7 @@ const CountryPicker = ({ handleCountryChange }) => {
     fetchAPI();
   }, [setFetchedCountries]);
   return (
-    <div>
+    <div className={styles.container}>
       <FormControl className={styles.formControl}>
         <NativeSelect
           defaultValue={""}
@@ -22,7 +22,7 @@ const CountryPicker = ({ handleCountryChange }) => {
             handleCountryChange(e.target.value);
           }}
         >
-          <option value="">Check Covid-19 stats for all countries</option>
+          <option value="">Nigeria</option>
           {console.log(fetchedCountries)}
           {fetchedCountries.map((country, i) => (
             <option key={i} value={country}>
