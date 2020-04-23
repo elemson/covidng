@@ -22,7 +22,7 @@ const CountryPicker = ({ handleCountryChange }) => {
             handleCountryChange(e.target.value);
           }}
         >
-          <option value="">Global</option>
+          <option value="">Check Covid-19 stats for all countries</option>
           {console.log(fetchedCountries)}
           {fetchedCountries.map((country, i) => (
             <option key={i} value={country}>

@@ -99,9 +99,8 @@ const Chart = ({
 
   return (
     <>
-      <h2>Chart representation</h2>
       <div className={styles.container}>{country ? barChart : lineChart}</div>
-      <h2>Total number of Global cases per time</h2>
+      <h2>World Total Confirmed</h2>
       <div className={styles.container}>{lineChart}</div>
     </>
   );

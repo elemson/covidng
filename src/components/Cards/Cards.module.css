@@ -3,8 +3,12 @@
   width: 50%;
 }
 
+.title {
+  margin: 50px 280px;
+}
+
 .card {
-  margin: 1% 2% !important;
+  margin: 2% !important;
 }
 
 .infected {

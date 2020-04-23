@@ -17,17 +17,15 @@ export const fetchData = async (country) => {
         tests,
         cases,
         active,
-
         recovered,
         deaths,
         todayCases,
         casesPerOneMillion,
         todayDeaths,
         critical,
+        updated,
       },
     } = await axios.get(changeableUrl);
-
-    //"#2fc5e9"
 
     const modifiedData = {
       tests: [tests, "#43b67e"],
@@ -53,7 +51,6 @@ export const fetchDailyData = async () => {
     const modifiedData = data.map((dailyData) => ({
       confirmed: dailyData.confirmed.total,
       deaths: dailyData.deaths.total,
-
       date: dailyData.reportDate,
     }));
 
@@ -68,15 +65,6 @@ export const fetchCountries = async () => {
     } = await axios.get(`${url}/countries`);
 
     return countries.map((country) => country.name);
-  } catch (error) {
-    console.log(error);
-  }
-};
-
-export const fetchNewCountries = async () => {
-  try {
-    const { data } = await axios.get(`${url2}`);
-    console.log(data);
   } catch (error) {
     console.log(error);
   }

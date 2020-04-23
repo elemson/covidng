@@ -26,10 +26,8 @@ const Cards = ({ data }) => {
         <Typography variant="h5">
           <CountUp start={0} end={value[0]} duration={2.5} separator="," />
         </Typography>
-        <Typography color="textSecondary">
-          {new Date(value[0]).toDateString()}
-        </Typography>
-        <Typography variant="body2">Number of {keyName}</Typography>
+        <Typography color="textSecondary"> {"--"}</Typography>
+        <Typography color="textPrimary">Number of {keyName}</Typography>
       </CardContent>
     </Grid>
   ));
@@ -37,6 +35,11 @@ const Cards = ({ data }) => {
   return (
     <div className={styles.container} justify="center">
       <Grid container md={12} justify="center" spacing={3} gutterBottom>
+        <Grid container md={12} justify="center" spacing={3} gutterBottom>
+          <Typography variant="h4" gutterBottom spacing={3}>
+            Nigeria Covid-19 stats
+          </Typography>
+        </Grid>
         {gg}
       </Grid>
     </div>
