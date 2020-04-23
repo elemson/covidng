@@ -2,13 +2,10 @@
 
 This app fetches covid19 data from https://covid19.mathdro.id/api open API and displays it in a more visual friendly formats such as charts, graphs, etc.
 
-## Technologies used
+### Technologies used
 
 ReactJS
 Material UI
-
-## Technical description
-
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
@@ -38,6 +35,6 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-## npm install
+### npm `install`
 
 Installs existing dependencies

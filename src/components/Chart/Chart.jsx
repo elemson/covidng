@@ -26,7 +26,7 @@ const Chart = ({ data: { confirmed, deaths, recovered }, country }) => {
           },
           {
             data: dailyData.map(({ deaths }) => deaths),
-            label: "infected",
+            label: "death",
             borderColor: "red",
             backgroundColor: "rgba(255, 0, 0 0.5)",
           },
@@ -55,7 +55,7 @@ const Chart = ({ data: { confirmed, deaths, recovered }, country }) => {
         legend: { display: false },
         title: {
           display: true,
-          text: `Current state in ${country}`,
+          //   text: `Current state in ${country}`,
         },
       }}
     />
@@ -63,8 +63,9 @@ const Chart = ({ data: { confirmed, deaths, recovered }, country }) => {
 
   return (
     <>
+      <h2>Covid Data in Nigeria</h2>
       <div className={styles.container}>{country ? barChart : lineChart}</div>
-      <h2>Total number of cases per time</h2>
+      <h2>Total Global number of cases recorded per time</h2>
       <div className={styles.container}>{lineChart}</div>
     </>
   );

@@ -29,7 +29,7 @@ export default class App extends Component {
       <div>
         <div className={styles.container}>
           <Cards data={data} />
-          <CountryPicker handleCountryChange={this.handleCountryChange} />
+          {/* <CountryPicker handleCountryChange={this.handleCountryChange} /> */}
           <Chart data={data} country={country} />
         </div>
       </div>

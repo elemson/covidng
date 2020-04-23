@@ -10,8 +10,7 @@ const Cards = ({ data: { confirmed, recovered, deaths, lastUpdate } }) => {
     return "Loading...";
   }
   return (
-    <div className={styles.container}>
-      <h2>Covik-One-Nine</h2>
+    <div className={styles.container} justify="center">
       <Grid container spacing={3} justify="center">
         <Grid
           item
