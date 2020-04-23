@@ -4,10 +4,11 @@ import { fetchData } from "./api";
 import styles from "./App.module.css";
 
 import { Cards, CountryPicker, Chart } from "./components";
+import { Nav } from "./components/Nav/Nav";
 
 export default class App extends Component {
   state = {
-    data: {},
+    data: [],
     country: {},
   };
 
@@ -27,6 +28,7 @@ export default class App extends Component {
     const { data, country } = this.state;
     return (
       <div>
+        <Nav />
         <div className={styles.container}>
           <Cards data={data} />
           {/* <CountryPicker handleCountryChange={this.handleCountryChange} /> */}

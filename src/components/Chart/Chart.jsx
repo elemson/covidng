@@ -3,7 +3,19 @@ import { fetchDailyData } from "../../api";
 import { Line, Bar } from "react-chartjs-2";
 import styles from "./Chart.module.css";
 
-const Chart = ({ data: { confirmed, deaths, recovered }, country }) => {
+const Chart = ({
+  data: {
+    cases,
+    recovered,
+    deaths,
+    active,
+    tests,
+    todayCases,
+    todayDeaths,
+    critical,
+  },
+  country,
+}) => {
   const [dailyData, setDailyData] = useState([]);
 
   useEffect(() => {
@@ -35,19 +47,43 @@ const Chart = ({ data: { confirmed, deaths, recovered }, country }) => {
     />
   ) : null;
 
-  const barChart = confirmed ? (
+  const barChart = cases ? (
     <Bar
       data={{
-        labels: ["Infected", "Reovered", "Deaths"],
+        labels: [
+          " tests",
+          "Cases",
+          "Reovered",
+          "Currently infected",
+          "Deaths",
+
+          //   "Today's cases",
+          //   "Today's deaths",
+          //   "Critical",
+        ],
         datasets: [
           {
             label: "People",
             backgroundColor: [
+              "#43b67e",
               "rgba(0,0,255,0.5)",
-              " rgba(0, 255,0, 0.5)",
+              " rgba(0,255,0, 0.5)",
+              "rgba(255,0,0,0.5)",
+              "#2fc5e9",
+              "rgba(255,0,0,0.5)",
               "rgba(255,0,0,0.5)",
             ],
-            data: [confirmed.value, recovered.value, deaths.value],
+            data: [
+              tests[0],
+              cases[0],
+              recovered[0],
+              active[0],
+              deaths[0],
+
+              //   todayCases[0],
+              //   todayDeaths[0],
+              //   critical[0],
+            ],
           },
         ],
       }}
@@ -63,9 +99,9 @@ const Chart = ({ data: { confirmed, deaths, recovered }, country }) => {
 
   return (
     <>
-      <h2>Covid Data in Nigeria</h2>
+      <h2>Chart representation</h2>
       <div className={styles.container}>{country ? barChart : lineChart}</div>
-      <h2>Total Global number of cases recorded per time</h2>
+      <h2>Total number of Global cases per time</h2>
       <div className={styles.container}>{lineChart}</div>
     </>
   );
