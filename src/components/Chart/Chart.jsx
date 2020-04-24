@@ -8,7 +8,7 @@ const Chart = ({
     cases,
     recovered,
     deaths,
-    active,
+    // active,
     tests,
     todayCases,
     todayDeaths,
@@ -40,7 +40,7 @@ const Chart = ({
             data: dailyData.map(({ deaths }) => deaths),
             label: "death",
             borderColor: "red",
-            backgroundColor: "rgba(255, 0, 0 0.5)",
+            // backgroundColor: "rgba(255, 0, 0 0.5)",
           },
         ],
       }}
@@ -54,7 +54,7 @@ const Chart = ({
           " tests",
           "Cases",
           "Reovered",
-          "Currently infected",
+          // "Currently infected",
           "Deaths",
 
           //   "Today's cases",
@@ -77,9 +77,8 @@ const Chart = ({
               tests[0],
               cases[0],
               recovered[0],
-              active[0],
+              // active[0],
               deaths[0],
-
               //   todayCases[0],
               //   todayDeaths[0],
               //   critical[0],

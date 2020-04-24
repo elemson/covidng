@@ -1,5 +1,4 @@
 import axios from "axios";
-import { CardActions } from "@material-ui/core";
 
 const url = "https://covid19.mathdro.id/api";
 const url2 = "https://corona.lmao.ninja/v2";
@@ -16,14 +15,14 @@ export const fetchData = async (country) => {
       data: {
         tests,
         cases,
-        active,
+        // active,
         recovered,
         deaths,
-        todayCases,
-        casesPerOneMillion,
-        todayDeaths,
-        critical,
-        updated,
+        // todayCases,
+        // casesPerOneMillion,
+        // todayDeaths,
+        // critical,
+        // updated,
       },
     } = await axios.get(changeableUrl);
 
@@ -32,11 +31,12 @@ export const fetchData = async (country) => {
       cases: [cases, "rgba(0, 0, 255, 0.5)"],
       recovered: [recovered, "rgba(0,255,0, 0.5)"],
       deaths: [deaths, " rgba(255,0,0,0.5)"],
-      active: [active, "#2fc5e9"],
-      todayCases: [todayCases, "#c1a646"],
-      casesPerOneMillion: [casesPerOneMillion, "rgba(0, 0, 255, 0.5)"],
-      todayDeaths: [todayDeaths, "#767767"],
-      critical: [critical, "#f44336"],
+      //   active: [active, "#2fc5e9"],
+
+      //   todayCases: [todayCases, "#c1a646"],
+      //   casesPerOneMillion: [casesPerOneMillion, "rgba(0, 0, 255, 0.5)"],
+      //   todayDeaths: [todayDeaths, "#767767"],
+      //   critical: [critical, "#f44336"],
     };
     return modifiedData;
   } catch (error) {

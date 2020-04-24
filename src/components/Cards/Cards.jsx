@@ -2,7 +2,7 @@ import React from "react";
 
 import { Card, CardContent, Typography, Grid } from "@material-ui/core";
 import CountUp from "react-countup";
-import cx from "classnames";
+
 import styles from "./Cards.module.css";
 
 const Cards = ({ data }) => {
@@ -14,10 +14,10 @@ const Cards = ({ data }) => {
     <Grid
       item
       component={Card}
-      xs={12}
+      xs={6}
       md={3}
       style={{ color: value[1] }}
-      className={cx(styles.card)}
+      key={value}
     >
       <CardContent>
         <Typography color="textSecondary" gutterBottom>
@@ -26,22 +26,15 @@ const Cards = ({ data }) => {
         <Typography variant="h5">
           <CountUp start={0} end={value[0]} duration={2.5} separator="," />
         </Typography>
-        <Typography color="textSecondary"> {"--"}</Typography>
-        <Typography color="textPrimary">Number of {keyName}</Typography>
+        <Typography color="textSecondary"> {".."}</Typography>
+        <Typography color="textSecondary">Number of {keyName}</Typography>
       </CardContent>
     </Grid>
   ));
 
   return (
     <div className={styles.container} justify="center">
-      <Grid container md={12} justify="center" spacing={3} gutterBottom>
-        <Grid
-          container
-          md={12}
-          justify="center"
-          spacing={3}
-          gutterBottom
-        ></Grid>
+      <Grid container justify="center">
         {gg}
       </Grid>
     </div>

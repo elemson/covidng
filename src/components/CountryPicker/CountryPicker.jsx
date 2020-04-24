@@ -23,7 +23,7 @@ const CountryPicker = ({ handleCountryChange }) => {
           }}
         >
           <option value="">Nigeria</option>
-          {console.log(fetchedCountries)}
+
           {fetchedCountries.map((country, i) => (
             <option key={i} value={country}>
               {country}
