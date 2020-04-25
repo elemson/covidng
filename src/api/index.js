@@ -44,6 +44,10 @@ export const fetchData = async (country) => {
   }
 };
 
+export const NigerianStates = {
+  states: { lagos: { cases: 582, active: 133, recovered: 106, deaths: 16 } },
+};
+
 export const fetchDailyData = async () => {
   try {
     const { data } = await axios.get(`${url}/daily`);
