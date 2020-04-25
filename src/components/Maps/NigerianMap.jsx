@@ -11,7 +11,6 @@ export default function NigerianMap({ states }) {
         {console.log(elemson.name)}
         <a
           id="region D"
-          xlinkHref="#"
           xlinkTitle={
             " case(s): " + elemson.name + " " + elemson.cases.toString()
           }
