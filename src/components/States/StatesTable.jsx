@@ -4,9 +4,7 @@ import styles from "./States.module.css";
 import { Typography } from "@material-ui/core";
 
 export default function StatesTable({ states }) {
-  console.log(states);
-
-  const lineChart = states.length ? (
+  const lineChart = states ? (
     <Line
       data={{
         labels: states.map(({ name }) => name),
