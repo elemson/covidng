@@ -15,7 +15,7 @@ export default class App extends Component {
     country: {},
     state: state,
     states: [],
-    scrapedMap: "",
+    scrapedMap: [],
   };
 
   async componentDidMount() {
