@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./App.css";
-import { fetchData, NigerianStates, scrapeStates } from "./api";
+import { fetchData, NigerianStates, scrapeStates, fetchMap } from "./api";
 import styles from "./App.module.css";
 
 import { Cards, CountryPicker, Chart } from "./components";
@@ -15,15 +15,18 @@ export default class App extends Component {
     country: {},
     state: state,
     states: [],
+    scrapedMap: "",
   };
 
   async componentDidMount() {
+    const scrapedStates = await scrapeStates();
+    console.log(scrapeStates);
     const fetchedData = await fetchData();
-
-    const scrapedStates = await scrapeStates;
+    const fetchedMap = await fetchMap;
 
     this.setState({ states: scrapedStates });
     this.setState({ data: fetchedData });
+    this.setState({ scrapedMap: fetchedMap });
   }
 
   handleCountryChange = async (country) => {
@@ -32,7 +35,9 @@ export default class App extends Component {
   };
 
   render() {
-    const { data, country, states } = this.state;
+    const { data, country, states, scrapedMap } = this.state;
+
+    console.log(scrapedMap[0]);
 
     return (
       <div>
@@ -41,9 +46,10 @@ export default class App extends Component {
         <div className={styles.container}>
           <CountryPicker handleCountryChange={this.handleCountryChange} />
           <Cards data={data} />
-          <Chart data={data} country={country} />
+          {data ? <Chart data={data} country={country} /> : <h2>Loading</h2>}
+
+          <NigerianMap states={this.state.state} maps={scrapedMap} />
           <StatesTable states={states} />
-          <NigerianMap states={this.state.state} />
         </div>
       </div>
     );

@@ -35,6 +35,7 @@ const Cards = ({ data }) => {
   if (!data) {
     return "Loading...";
   }
+  const { cases } = data;
 
   const gg = Object.entries(data).map(([keyName, value]) => (
     <Grid
@@ -60,7 +61,7 @@ const Cards = ({ data }) => {
           <Typography className={classes.pos}>Number of {keyName}</Typography>
 
           {/* <Typography variant="h5" component="h2" style={{ color: value[1] }}>
-            +1
+            
           </Typography> */}
         </CardContent>
       </Card>

@@ -3,24 +3,31 @@ import styles from "./Maps.module.css";
 import { Grid } from "@material-ui/core";
 
 export default function NigerianMap({ states }) {
+  console.log(states);
+
   const gg = states.map((elemson, i) => {
-    return (
-      <>
-        <a
-          id="region D"
-          xlinkTitle={
-            " case(s): " + elemson.name + " " + elemson.cases.toString()
-          }
-        >
-          <path id={elemson.id} title={elemson.name} d={elemson.d}></path>
-        </a>
-      </>
-    );
+    if (!elemson) {
+      return "Loading...";
+    } else {
+      return (
+        <>
+          {console.log(elemson.name)}
+          <a
+            id="region D"
+            xlinkTitle={
+              " case(s): " + elemson.name + " " + elemson.cases.toString()
+            }
+          >
+            <path id={elemson.id} title={elemson.name} d={elemson.d}></path>
+          </a>
+        </>
+      );
+    }
   });
   return (
     <>
       <Grid className={styles.map__image}>
-        <g>
+        {/* <g>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             xmlnsAmcharts="http://amcharts.com/ammap"
@@ -30,7 +37,7 @@ export default function NigerianMap({ states }) {
           >
             {gg}
           </svg>
-        </g>
+        </g> */}
       </Grid>
       {/* <Grid className={styles.map__image}>
         <svg

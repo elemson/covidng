@@ -1,6 +1,18 @@
+.container {
+  display: block;
+  justify-content: center;
+  padding: 50px;
+  width: 50%;
+}
+
+@media (max-width: 770px) {
+  .container {
+    width: 100%;
+  }
+}
+
 .map__image {
   width: 50%;
-  float: left;
 }
 
 .map__image path {
@@ -16,8 +28,6 @@
   stroke: #fff;
   stroke-width: 1px;
   transition: fill 0.3s;
-}
-.map__list {
 }
 
 .map__list li {

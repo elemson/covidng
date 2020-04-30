@@ -21,9 +21,9 @@ export const fetchData = async (country) => {
         // active,
         recovered,
         deaths,
-        // todayCases,
+        todayCases,
         // casesPerOneMillion,
-        // todayDeaths,
+        todayDeaths,
         // critical,
         // updated,
       },
@@ -36,41 +36,54 @@ export const fetchData = async (country) => {
       deaths: [deaths, " rgba(255,0,0,0.5)"],
       //   active: [active, "#2fc5e9"],
 
-      //   todayCases: [todayCases, "#c1a646"],
+      todayCases: [todayCases, "#c1a646"],
       //   casesPerOneMillion: [casesPerOneMillion, "rgba(0, 0, 255, 0.5)"],
-      //   todayDeaths: [todayDeaths, "#767767"],
+      todayDeaths: [todayDeaths, "#767767"],
       //   critical: [critical, "#f44336"],
     };
+
+    console.log(modifiedData);
     return modifiedData;
   } catch (error) {
     console.log(error);
   }
 };
 
-export const scrapeStates = axios.get(url3).then((body) => {
-  let scrapedStates = [];
-  const $ = cheerio.load(body.data);
-  const table = $(".wikitable tbody tr");
+export const scrapeStates = async () =>
+  await axios.get(url3).then((body) => {
+    let scrapedStates = [];
+    const $ = cheerio.load(body.data);
+    const table = $(".wikitable tbody tr");
+    const map = $("table a img").attr("src");
 
-  $(table).each((i, el) => {
-    const states = $(el).find("a").text();
-    const cases = $(el).find("td b").text();
-    const active = $(el).find("td").first().next().text();
-    const recovered = $(el).find("td").first().next().next().text();
-    const death = $(el).find("td").first().next().next().next().text();
+    $(table).each((i, el) => {
+      const states = $(el).find("a").text();
+      const cases = $(el).find("td b").text();
+      const active = $(el).find("td").first().next().text();
+      const recovered = $(el).find("td").first().next().next().text();
+      const death = $(el).find("td").first().next().next().next().text();
 
-    var data = {
-      states,
-      cases,
-      active,
-      recovered,
-      death,
-    };
+      var data = {
+        states,
+        cases,
+        active,
+        recovered,
+        death,
+      };
 
-    scrapedStates.push(data);
+      scrapedStates.push(data);
+    });
+    console.log(scrapedStates);
+    return scrapedStates;
   });
-  console.log(scrapedStates);
-  return scrapedStates;
+
+export const fetchMap = axios.get(url3).then((body) => {
+  let scrapedMap = [];
+  const $ = cheerio.load(body.data);
+  const scrapeMap = $("table a img").attr("src");
+  scrapedMap.push(scrapeMap);
+  console.log(scrapedMap);
+  return scrapedMap;
 });
 
 export const fetchDailyData = async () => {

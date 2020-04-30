@@ -37,8 +37,11 @@ export default function StatesTable({ states }) {
     <>
       <div className={styles.container}>
         <Typography align="center">
-          <h2 styles={{ text: "center" }}>Confirmed by Nigerian states</h2>
+          <h2 styles={{ text: "center" }}>
+            Confirmed COVID-19 cases in Nigeria by state
+          </h2>
         </Typography>
+
         {lineChart}
       </div>
     </>
