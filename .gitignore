@@ -11,8 +11,8 @@
 # production
 /build
 
-# nodemodules
-.../node_modules
+# covidnguselessfiles
+/covidng
 
 # misc
 .DS_Store
