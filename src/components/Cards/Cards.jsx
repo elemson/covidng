@@ -1,18 +1,10 @@
 import React from "react";
 
-import {
-  Card,
-  CardContent,
-  Typography,
-  Grid,
-  CardActions,
-  Button,
-} from "@material-ui/core";
+import { Card, CardContent, Typography, Grid } from "@material-ui/core";
 import CountUp from "react-countup";
 import { makeStyles } from "@material-ui/core/styles";
 
 import styles from "./Cards.module.css";
-import Alert from "@material-ui/lab/Alert";
 
 const useStyles = makeStyles({
   root: {
@@ -34,9 +26,8 @@ const useStyles = makeStyles({
 const Cards = ({ data }) => {
   const classes = useStyles();
   if (!data) {
-    return "Loading...";
+    return "Loading stats";
   }
-  const { cases } = data;
 
   const gg = Object.entries(data).map(([keyName, value]) => (
     <Grid

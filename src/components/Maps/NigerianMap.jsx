@@ -3,15 +3,12 @@ import styles from "./Maps.module.css";
 import { Grid } from "@material-ui/core";
 
 export default function NigerianMap({ states }) {
-  console.log(states);
-
   const gg = states.map((elemson, i) => {
     if (!elemson) {
       return "Loading...";
     } else {
       return (
         <>
-          {console.log(elemson.name)}
           <a
             id="region D"
             xlinkTitle={

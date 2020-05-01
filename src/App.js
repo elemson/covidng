@@ -8,7 +8,8 @@ import { Nav } from "./components/Nav/Nav";
 import NigerianMap from "./components/Maps/NigerianMap";
 import state from "./data";
 import StatesTable from "./components/States/StatesTable";
-import SimpleTable from "./components/States/StatesChart";
+import Spinner from "./components/Spinner/Spinner";
+import WorldLineChart from "./components/Chart/WorldLineChart";
 
 export default class App extends Component {
   state = {
@@ -21,7 +22,7 @@ export default class App extends Component {
 
   async componentDidMount() {
     const scrapedStates = await scrapeStates();
-    console.log(scrapeStates);
+
     const fetchedData = await fetchData();
     const fetchedMap = await fetchMap;
 
@@ -38,8 +39,6 @@ export default class App extends Component {
   render() {
     const { data, country, states, scrapedMap } = this.state;
 
-    console.log(scrapedMap[0]);
-
     return (
       <div className={styles.map}>
         <Nav />
@@ -47,10 +46,21 @@ export default class App extends Component {
         <div className={styles.container}>
           <CountryPicker handleCountryChange={this.handleCountryChange} />
           <Cards data={data} />
-          {data ? <Chart data={data} country={country} /> : <h2>Loading</h2>}
+
+          {data ? (
+            <Chart data={data} country={country} />
+          ) : (
+            <div>
+              loading charts...
+              <Spinner />{" "}
+            </div>
+          )}
+
+          {states ? <StatesTable states={states} /> : <Spinner />}
 
           <NigerianMap states={this.state.state} maps={scrapedMap} />
-          <StatesTable states={states} />
+          <WorldLineChart />
+
           {/* <SimpleTable /> */}
         </div>
       </div>

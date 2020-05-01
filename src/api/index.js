@@ -2,7 +2,7 @@ import axios from "axios";
 import cheerio from "cheerio";
 
 const url = "https://covid19.mathdro.id/api";
-const url2 = "https://corona.lmao.ninja/v2";
+const url2 = "https://cors-anywhere.herokuapp.com/https://corona.lmao.ninja/v2";
 const url3 =
   "https://cors-anywhere.herokuapp.com/https://en.wikipedia.org/wiki/2020_coronavirus_pandemic_in_Nigeria";
 
@@ -21,9 +21,9 @@ export const fetchData = async (country) => {
         // active,
         recovered,
         deaths,
-        todayCases,
+        // todayCases,
         // casesPerOneMillion,
-        todayDeaths,
+        // todayDeaths,
         // critical,
         // updated,
       },
@@ -36,9 +36,9 @@ export const fetchData = async (country) => {
       deaths: [deaths, " rgba(255,0,0,0.5)"],
       //   active: [active, "#2fc5e9"],
 
-      todayCases: [todayCases, "#c1a646"],
+      // todayCases: [todayCases, "#c1a646"],
       //   casesPerOneMillion: [casesPerOneMillion, "rgba(0, 0, 255, 0.5)"],
-      todayDeaths: [todayDeaths, "#767767"],
+      // todayDeaths: [todayDeaths, "#767767"],
       //   critical: [critical, "#f44336"],
     };
 
@@ -73,7 +73,7 @@ export const scrapeStates = async () =>
 
       scrapedStates.push(data);
     });
-    console.log(scrapedStates);
+
     return scrapedStates;
   });
 
@@ -82,7 +82,7 @@ export const fetchMap = axios.get(url3).then((body) => {
   const $ = cheerio.load(body.data);
   const scrapeMap = $("table a img").attr("src");
   scrapedMap.push(scrapeMap);
-  console.log(scrapedMap);
+
   return scrapedMap;
 });
 

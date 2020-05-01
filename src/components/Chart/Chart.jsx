@@ -1,10 +1,9 @@
-import React, { useState, useEffect } from "react";
-import { fetchDailyData } from "../../api";
-import { Line, Bar } from "react-chartjs-2";
+import React from "react";
+import { Bar } from "react-chartjs-2";
 import styles from "./Chart.module.css";
-import NigerianMap from "../Maps/NigerianMap";
-import Alert from "@material-ui/lab/Alert";
+
 import { Typography } from "@material-ui/core";
+import Spinner from "../Spinner/Spinner";
 
 const Chart = ({
   data: {
@@ -19,37 +18,6 @@ const Chart = ({
   },
   country,
 }) => {
-  const [dailyData, setDailyData] = useState([]);
-
-  useEffect(() => {
-    const fetchAPI = async () => {
-      setDailyData(await fetchDailyData());
-    };
-    fetchAPI();
-  }, []);
-
-  const lineChart = dailyData.length ? (
-    <Line
-      data={{
-        labels: dailyData.map(({ date }) => date),
-        datasets: [
-          {
-            data: dailyData.map(({ confirmed }) => confirmed),
-            label: "infected",
-            borderColor: "#3333ff",
-            fill: true,
-          },
-          {
-            data: dailyData.map(({ deaths }) => deaths),
-            label: "death",
-            borderColor: "red",
-            // backgroundColor: "rgba(255, 0, 0 0.5)",
-          },
-        ],
-      }}
-    />
-  ) : null;
-
   const barChart = cases ? (
     <Bar
       data={{
@@ -98,24 +66,13 @@ const Chart = ({
       }}
     />
   ) : (
-    <h1>loading</h1>
+    <Spinner />
   );
 
   return (
     <>
       <div className={styles.container}>
-        <Typography align="center">
-          <h2 styles={{ text: "center" }}>
-            Total World cases of 2019–20 coronavirus pandemic{" "}
-            <Typography variant="caption" display="block" gutterBottom>
-              - covidstories.herokuapp.com
-            </Typography>
-          </h2>
-        </Typography>
-
-        {lineChart}
-
-        {barChart}
+        <Typography align="center">{barChart}</Typography>
       </div>
     </>
   );
