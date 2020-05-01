@@ -38,8 +38,11 @@ export default function StatesTable({ states }) {
       <div className={styles.container}>
         <Typography align="center">
           <h2 styles={{ text: "center" }}>
-            Confirmed COVID-19 cases in Nigeria by state
-          </h2>
+            Confirmed COVID-19 cases in Nigeria by state{" "}
+            <Typography variant="caption" display="block" gutterBottom>
+              - covidstories.herokuapp.com
+            </Typography>
+          </h2>{" "}
         </Typography>
 
         {lineChart}

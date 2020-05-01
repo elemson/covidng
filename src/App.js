@@ -8,6 +8,7 @@ import { Nav } from "./components/Nav/Nav";
 import NigerianMap from "./components/Maps/NigerianMap";
 import state from "./data";
 import StatesTable from "./components/States/StatesTable";
+import SimpleTable from "./components/States/StatesChart";
 
 export default class App extends Component {
   state = {
@@ -40,7 +41,7 @@ export default class App extends Component {
     console.log(scrapedMap[0]);
 
     return (
-      <div>
+      <div className={styles.map}>
         <Nav />
 
         <div className={styles.container}>
@@ -50,6 +51,7 @@ export default class App extends Component {
 
           <NigerianMap states={this.state.state} maps={scrapedMap} />
           <StatesTable states={states} />
+          {/* <SimpleTable /> */}
         </div>
       </div>
     );

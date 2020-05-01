@@ -3,6 +3,8 @@ import { fetchDailyData } from "../../api";
 import { Line, Bar } from "react-chartjs-2";
 import styles from "./Chart.module.css";
 import NigerianMap from "../Maps/NigerianMap";
+import Alert from "@material-ui/lab/Alert";
+import { Typography } from "@material-ui/core";
 
 const Chart = ({
   data: {
@@ -101,10 +103,20 @@ const Chart = ({
 
   return (
     <>
-      <h2>Total cases of 2019–20 coronavirus pandemic</h2>
-      <div className={styles.container}>{lineChart}</div>
+      <div className={styles.container}>
+        <Typography align="center">
+          <h2 styles={{ text: "center" }}>
+            Total World cases of 2019–20 coronavirus pandemic{" "}
+            <Typography variant="caption" display="block" gutterBottom>
+              - covidstories.herokuapp.com
+            </Typography>
+          </h2>
+        </Typography>
 
-      <div className={styles.container}>{barChart}</div>
+        {lineChart}
+
+        {barChart}
+      </div>
     </>
   );
 };

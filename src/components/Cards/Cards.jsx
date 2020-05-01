@@ -12,6 +12,7 @@ import CountUp from "react-countup";
 import { makeStyles } from "@material-ui/core/styles";
 
 import styles from "./Cards.module.css";
+import Alert from "@material-ui/lab/Alert";
 
 const useStyles = makeStyles({
   root: {
@@ -69,11 +70,13 @@ const Cards = ({ data }) => {
   ));
 
   return (
-    <div className={styles.container} justify="center">
-      <Grid container justify="center">
-        {gg}
-      </Grid>
-    </div>
+    <>
+      <div className={styles.container} justify="center">
+        <Grid container justify="center">
+          {gg}
+        </Grid>
+      </div>
+    </>
   );
 };
 
